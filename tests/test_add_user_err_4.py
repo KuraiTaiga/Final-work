@@ -1,11 +1,14 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from pages.login_page import LoginPage
 from pages.add_user_page import AddUserPage
 import time
 @pytest.mark.xfail
 def test_add_user():
-    driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument("--headless")
+    driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(1)
 
     login_page = LoginPage(driver)
