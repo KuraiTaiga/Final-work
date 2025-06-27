@@ -4,6 +4,9 @@ from pages.login_page import LoginPage
 from pages.add_user_page import AddUserPage
 import time
 @pytest.mark.xfail
+options = Options()
+options.add_argument("--headless")
+driver = webdriver.Chrome(options=options)
 def test_add_user():
     driver = webdriver.Chrome()
     driver.implicitly_wait(1)
